@@ -1,27 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Scenario } from '@/features/scenarios/types/scenario'
-import { Badge } from '@/components/ui/Badge'
-import {
-  ArrowRightIcon,
-  BriefcaseIcon,
-  ChatIcon,
-  UserIcon,
-  UsersIcon,
-  WaveIcon,
-} from '@/components/ui/icons'
-import styles from './ScenarioCard.module.css'
 import { DifficultyDot, Tag } from '@/components/ui/Tag'
-
-type ScenarioCardProps = {
-  scenario: Scenario
-}
-
-const ACCENT_ICON = {
-  blue: UserIcon,
-  orange: UserIcon,
-  green: UsersIcon,
-  purple: ChatIcon,
-} as const
 
 // export function ScenarioCard({ scenario }: ScenarioCardProps) {
 //   const Icon = ACCENT_ICON[scenario.accent]
