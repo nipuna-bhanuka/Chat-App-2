@@ -1,0 +1,118 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 28px 12px;
+  overflow: auto;
+  height: 100%;
+}
+
+.day {
+  align-self: center;
+  margin: 4px 0 8px;
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 78%;
+}
+
+.assistant {
+  align-self: flex-start;
+}
+
+.user {
+  align-self: flex-end;
+}
+
+.bubbleWrap {
+  display: grid;
+  gap: 4px;
+}
+
+.user .bubbleWrap {
+  justify-items: end;
+}
+
+.bubble {
+  display: grid;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.bubble p {
+  margin: 0;
+}
+
+.assistant .bubble {
+  background: #df9f6f;
+  color: #1f2937;
+  border-bottom-left-radius: 6px;
+}
+
+.user .bubble {
+  background: #2563eb;
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+
+.audio {
+  padding: 8px 12px 8px 8px;
+}
+
+.bubbleWrap time {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  .list {
+    padding: 16px;
+  }
+
+  .row {
+    max-width: 92%;
+  }
+}
+
+@media print {
+  .list {
+    display: block;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .day {
+    text-align: center;
+  }
+
+  .row {
+    width: fit-content;
+    max-width: 78%;
+    margin-bottom: 16px;
+    break-inside: avoid;
+  }
+
+  .user {
+    margin-left: auto;
+  }
+
+  .bubbleWrap {
+    min-width: 0;
+  }
+
+  .bubble {
+    overflow-wrap: anywhere;
+  }
+}

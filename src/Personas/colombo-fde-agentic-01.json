@@ -1,0 +1,153 @@
+{
+  "scenarioId": "colombo-fde-agentic-01",
+  "profession": "Technology / Forward Deployed Engineering",
+  "category": "Technology",
+  "type": "Executive Stakeholder Presentation",
+  "modality": "Speaking",
+  "difficulty": "Intermediate",
+  "title": "Agentic workflow design review",
+  "objective": "Explain agentic AI controls to a skeptical COO using deterministic technical-business language, without analogies and without raw developer jargon.",
+  "turnCap": 10,
+  "sizing": {
+    "leftPanelType": "workflow_nodes",
+    "rightPanelType": "voice_and_metrics"
+  },
+  "leftPanelData": {
+    "label": "Proposed future state - dispatch routing",
+    "caption": "You are presenting this diagram. She is reading it as a risk register.",
+    "nodes": [
+      {
+        "id": "n1",
+        "tag": "MANUAL",
+        "title": "Consignment intake",
+        "desc": "Clerk keys manifest data from broker email into dispatch sheet."
+      },
+      {
+        "id": "n2",
+        "tag": "AGENTIC",
+        "title": "Route assessment agent",
+        "desc": "Selects carrier and lane against cost, SLA window and customs class."
+      },
+      {
+        "id": "n3",
+        "tag": "AGENTIC",
+        "title": "Declaration pre-fill",
+        "desc": "Populates tax and HS-code fields from the consignment record."
+      },
+      {
+        "id": "n4",
+        "tag": "GATE",
+        "title": "Exception queue",
+        "desc": "Out-of-bounds cases routed to human supervisor before execution."
+      },
+      {
+        "id": "n5",
+        "tag": "MANUAL",
+        "title": "Board reporting",
+        "desc": "Weekly SLA penalty exposure summary."
+      }
+    ]
+  },
+  "character": {
+    "name": "Mrs. Jayasinghe",
+    "title": "Chief Operations Officer, Lanka Logistics & Warehousing",
+    "background": "Executive-level operator, MBA from a top-tier international business school. Not a coder, but understands database structures, system inputs and operational risk. Carries final accountability for SLA penalties.",
+    "tone": "Professional, highly articulate, skeptical of technology buzzwords, protective of operational integrity.",
+    "languageStyle": "Elite Sri Lankan professional English. Grammatically immaculate, crisp, formal, authoritative. Expects executive-level clarity in return.",
+    "coreBelief": "'Agentic AI' sounds like an unpredictable hype term. If a system makes autonomous decisions about cargo routing and tax declarations, it risks catastrophic regulatory and financial failure. She wants the exact mechanics of control, and will not tolerate lazy developer jargon or childish analogies.",
+    "openingLine": "Amila, looking at your proposed future state diagram, this 'agentic routing' looks like a complete black box to our board. If we hand over freight routing decisions to an autonomous system, what actual technical guardrails prevent it from executing a disastrously incorrect database action without our knowledge?"
+  },
+  "metrics": {
+    "name": "Board Risk Friction",
+    "startScore": 75,
+    "targetBoundary": 30,
+    "rules": {
+      "increase": "The candidate becomes defensive, uses analogies or personification to describe the system, or drops untranslated developer jargon such as classes, webhooks, decorators or vector DBs.",
+      "decrease": "The candidate defines hard boundaries, validation rules, deterministic triggers and structural safeguards in precise business-technical language that a non-coding executive can audit."
+    }
+  },
+  "traps": {
+    "trap1": {
+      "name": "The Analogy Penalty",
+      "description": "Explaining the agent through metaphor or personification - a 'smart assistant', 'a postal sorting system', 'like a junior staff member'. In an executive risk meeting this reads as patronising and evasive.",
+      "penalty": 15
+    },
+    "trap2": {
+      "name": "The Code Wall",
+      "description": "Raw programming syntax or framework jargon offered without translation into system-level business controls - instantiating classes, JSON payloads, decorators, backend exceptions, webhooks.",
+      "penalty": 15
+    },
+    "trap3": {
+      "name": "Defensive Deflection",
+      "description": "Reassuring her that it is safe without stating the mechanism, or implying the board would not understand the detail.",
+      "penalty": 10
+    }
+  },
+  "evaluationRubric": {
+    "formula": "S_final = sum(w_i * metric_i) - sum(penalties)",
+    "weights": {
+      "problem_discovery": 20,
+      "technical_translation": 35,
+      "deterministic_framing": 25,
+      "professional_command": 20
+    },
+    "metricPrompts": {
+      "problem_discovery": "Did they identify what she was actually afraid of - unbounded database writes - rather than answering a generic 'is AI safe' question?",
+      "technical_translation": "Did they convert mechanism into auditable business controls she could put to a board?",
+      "deterministic_framing": "Did they describe boundaries, validation layers and escalation thresholds instead of reassurance?",
+      "professional_command": "Register, structure and composure under executive pressure. Regional double-adverbs and hedging count against."
+    }
+  },
+  "briefing": {
+    "context": "You are Amila, a Forward Deployed Engineer. You have ten minutes of a COO's time to make an agentic routing design legible enough for her board. She is not hostile. She is accountable.",
+    "primer": [
+      {
+        "term": "Tool calling",
+        "avoid": "\"The agent calls tools.\"",
+        "use": "\"Deterministic database queries, triggered only when specific fields match a pre-verified schema.\"",
+        "why": "She needs to hear that the system cannot invent its own parameters."
+      },
+      {
+        "term": "Guardrails",
+        "avoid": "\"We've put guardrails on it.\"",
+        "use": "\"Hardcoded validation layers that route any out-of-bounds input to a human supervisor before execution.\"",
+        "why": "'Guardrail' is a metaphor. Name the actual gate."
+      },
+      {
+        "term": "Memory / state",
+        "avoid": "\"It remembers the context.\"",
+        "use": "\"Each step writes to a persisted record, so a dropped connection resumes at the last committed state rather than re-running the sequence.\"",
+        "why": "Her real question is what happens at 2am when the line drops."
+      },
+      {
+        "term": "Human in the loop",
+        "avoid": "\"There's always a human in the loop.\"",
+        "use": "\"Any consignment above the value threshold, or with an unmatched HS code, halts in the exception queue until signed off.\"",
+        "why": "A threshold is auditable. A promise is not."
+      }
+    ],
+    "paths": [
+      {
+        "label": "The analogy",
+        "kind": "penalty",
+        "line": "Think of the agent as a very smart dispatch clerk who never sleeps.",
+        "reaction": "Amila, please. I am running a multi-billion rupee logistics operation, not a school. I do not need metaphors. How does this system make a decision without human oversight?",
+        "effect": "+15"
+      },
+      {
+        "label": "The code wall",
+        "kind": "penalty",
+        "line": "We instantiate an agent class, pass a JSON schema payload, and use tool-calling decorators against a vector store.",
+        "reaction": "Let us pause there, young man. I do not run a software development house. What is a 'decorator' in plain business terms? I need to know where our controls sit.",
+        "effect": "+15"
+      },
+      {
+        "label": "The target path",
+        "kind": "target",
+        "line": "The system cannot write freely to dispatch. It can only execute pre-approved query formats against existing fields, and anything outside those formats stops in an exception queue for supervisor sign-off.",
+        "reaction": "A deterministic validation layer. So it cannot invent its own parameters. Then how does the system persist state across steps if the connection drops?",
+        "effect": "-20"
+      }
+    ]
+  }
+}

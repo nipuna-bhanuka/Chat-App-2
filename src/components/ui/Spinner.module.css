@@ -1,0 +1,23 @@
+.wrap {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  color: #6b7280;
+  font-size: 14px;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

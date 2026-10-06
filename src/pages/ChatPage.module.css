@@ -1,0 +1,64 @@
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 0;
+}
+
+.thread {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 0;
+  background: #fff;
+}
+
+.inlineError {
+  margin: 0 24px 8px;
+  color: #e11d48;
+  font-size: 13px;
+}
+
+.complete {
+  margin: 0 24px 8px;
+  color: #166534;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fullscreen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+@media (max-width: 860px) {
+  .body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+@media print {
+  .page,
+  .body,
+  .thread {
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .page > :not(.body),
+  .body > :not(.thread),
+  .thread > :not(.transcript) {
+    display: none;
+  }
+}

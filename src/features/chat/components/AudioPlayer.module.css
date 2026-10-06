@@ -1,0 +1,47 @@
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.play {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.play:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+  flex: 1;
+}
+
+.wave span {
+  width: 3px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.active {
+  background: #fff !important;
+}
+
+.time {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.9;
+}
